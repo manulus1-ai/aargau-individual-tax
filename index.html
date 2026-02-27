@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aargau Steuervergleich 2026 – Brugg (alt vs. neu)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Aargau Steuervergleich 2026</h1>
+      <p class="subtitle">Brugg · steuerbares Einkommen · keine Kirchensteuer · alt vs. Individualbesteuerung</p>
+    </header>
+
+    <section class="card">
+      <h2>Eingaben</h2>
+      <div class="grid">
+        <label>
+          Steuerbares Einkommen Person 1 (CHF)
+          <input type="number" id="inc1" value="100000" min="0" step="100" />
+        </label>
+        <label>
+          Steuerbares Einkommen Person 2 (CHF)
+          <input type="number" id="inc2" value="0" min="0" step="100" />
+        </label>
+        <label>
+          Anzahl Kinder
+          <input type="number" id="kids" value="0" min="0" step="1" />
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="singleParent" />
+          Alleinerziehend (Tarif B alt)
+        </label>
+      </div>
+      <button id="calc">Berechnen</button>
+      <p class="hint">Hinweis: Da das <strong>steuerbare Einkommen</strong> eingegeben wird, wirken Kinderabzüge hier nicht direkt. Die Kinderzahl dient nur für den alten Tarif‑B‑Fall bei Alleinerziehenden.</p>
+    </section>
+
+    <section class="card">
+      <h2>Ergebnis</h2>
+      <div class="results">
+        <div>
+          <div class="label">Alt (gemeinsam)</div>
+          <div class="value" id="oldTotal">–</div>
+        </div>
+        <div>
+          <div class="label">Neu (individuell)</div>
+          <div class="value" id="newTotal">–</div>
+        </div>
+        <div>
+          <div class="label">Differenz (Neu‑Alt)</div>
+          <div class="value" id="diff">–</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Methodik & Quellen</h2>
+      <ul>
+        <li>Tarif A/B: Aargau Einkommenssteuertarif 2025 (Proxy für 2026)</li>
+        <li>Steuerfüsse 2026: Kanton 103%, Brugg 97%, Kirche 0%</li>
+      </ul>
+      <p class="links">
+        <a href="https://www.ag.ch/media/kanton-aargau/dfr/dokumente/steuern/natuerliche-personen/steuerberechnung-tarife-natuerliche-personen/einkommenssteuertarif-2025.pdf" target="_blank" rel="noopener">Tarif 2025 (PDF)</a>
+        ·
+        <a href="https://www.ag.ch/media/kanton-aargau/dfr/dokumente/steuern/natuerliche-personen/steuerberechnung-tarife-natuerliche-personen/gemeinde-und-kirchensteuerf-sse-2026-v2.pdf" target="_blank" rel="noopener">Steuerfüsse 2026 (PDF)</a>
+      </p>
+    </section>
+
+    <footer>
+      <small>Rechner ohne Gewähr. Für exakte Werte: offiziellen Steuerrechner Aargau verwenden.</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
