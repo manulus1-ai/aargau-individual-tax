@@ -66,6 +66,8 @@ const calc = () => {
   // Alt
   const useTarifB = (inc2 > 0) || (singleParent && kids > 0);
   const oldSimple = useTarifB ? einfacheB(totalIncome) : einfacheA(totalIncome);
+  const { kantonRate, gemeindeRate } = getRates();
+  const mult = (kantonRate + gemeindeRate + KIRCHE) / 100.0;
   const oldTotal = total(oldSimple);
 
   // Neu
@@ -77,6 +79,9 @@ const calc = () => {
   document.getElementById('oldTotal').textContent = fmt(oldTotal);
   document.getElementById('newTotal').textContent = fmt(newTotal);
   document.getElementById('diff').textContent = fmt(diff);
+  document.getElementById('oldSimple').textContent = `Einfache Steuer: ${fmt(oldSimple)}`;
+  document.getElementById('newSimple').textContent = `Einfache Steuer: ${fmt(newSimple)}`;
+  document.getElementById('multInfo').textContent = `Steuerfuss gesamt: ${(kantonRate+gemeindeRate+KIRCHE)}% (×${mult.toFixed(2)})`;
 };
 
 const populateGemeinden = () => {

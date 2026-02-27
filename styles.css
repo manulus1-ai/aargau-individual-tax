@@ -73,5 +73,6 @@ button{
 .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
 .label{color:var(--muted);font-size:13px}
 .value{font-size:22px;font-weight:700;margin-top:6px}
+.small{color:var(--muted);font-size:12px;margin-top:4px}
 .links a{color:#93c5fd;text-decoration:none}
 footer{margin-top:18px;color:var(--muted)}
