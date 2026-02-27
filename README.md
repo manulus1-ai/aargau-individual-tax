@@ -4,7 +4,7 @@ Kleiner Rechner für den Vergleich **alt (gemeinsam)** vs. **neu (Individualbest
 
 ## Annahmen
 - **Tarif 2025** als Proxy für 2026 (Tarif 2026 war nicht verfügbar).
-- **Steuerfüsse 2026**: Kanton 103%, Brugg 97%, Kirche 0%.
+- **Steuerfüsse 2026**: Kanton 103% + Gemeinde (aus PDF) + Kirche 0%.
 - Eingabe ist **steuerbares Einkommen**.
 
 ## Quellen

@@ -19,9 +19,14 @@ const BRACKETS = [
 ];
 const TOP_RATE = 0.11;
 
-const KANTON = 103.0;
-const GEMEINDE = 97.0;
 const KIRCHE = 0.0;
+
+const getRates = () => {
+  const kantonRate = TAX_DATA.kanton_rate;
+  const gemeindeName = document.getElementById('gemeinde').value;
+  const gemeindeRate = TAX_DATA.gemeinden[gemeindeName];
+  return { kantonRate, gemeindeRate };
+};
 
 const fmt = (n) => {
   const parts = n.toFixed(2).split('.');
@@ -45,7 +50,8 @@ const einfacheA = (income) => {
 const einfacheB = (income) => 2 * einfacheA(income / 2);
 
 const total = (simple) => {
-  const mult = (KANTON + GEMEINDE + KIRCHE) / 100.0;
+  const { kantonRate, gemeindeRate } = getRates();
+  const mult = (kantonRate + gemeindeRate + KIRCHE) / 100.0;
   return simple * (1 + mult);
 };
 
@@ -73,7 +79,23 @@ const calc = () => {
   document.getElementById('diff').textContent = fmt(diff);
 };
 
+const populateGemeinden = () => {
+  const sel = document.getElementById('gemeinde');
+  const names = Object.keys(TAX_DATA.gemeinden).sort((a,b)=>a.localeCompare(b,'de'));
+  for (const name of names) {
+    const opt = document.createElement('option');
+    opt.value = name;
+    opt.textContent = name;
+    sel.appendChild(opt);
+  }
+  // default Brugg (AG)
+  const brugg = names.find(n => n.toLowerCase().startsWith('brugg'));
+  if (brugg) sel.value = brugg;
+};
+
 window.addEventListener('DOMContentLoaded', () => {
+  populateGemeinden();
   document.getElementById('calc').addEventListener('click', calc);
+  document.getElementById('gemeinde').addEventListener('change', calc);
   calc();
 });

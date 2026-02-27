@@ -17,6 +17,16 @@
       <h2>Eingaben</h2>
       <div class="grid">
         <label>
+          Kanton
+          <select id="kanton" disabled>
+            <option value="Aargau">Aargau</option>
+          </select>
+        </label>
+        <label>
+          Gemeinde
+          <select id="gemeinde"></select>
+        </label>
+        <label>
           Steuerbares Einkommen Person 1 (CHF)
           <input type="number" id="inc1" value="100000" min="0" step="100" />
         </label>
@@ -73,6 +83,7 @@
     </footer>
   </main>
 
+  <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
