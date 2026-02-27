@@ -52,7 +52,7 @@ const einfacheB = (income) => 2 * einfacheA(income / 2);
 const total = (simple) => {
   const { kantonRate, gemeindeRate } = getRates();
   const mult = (kantonRate + gemeindeRate + KIRCHE) / 100.0;
-  return simple * (1 + mult);
+  return simple * mult;
 };
 
 const calc = () => {
